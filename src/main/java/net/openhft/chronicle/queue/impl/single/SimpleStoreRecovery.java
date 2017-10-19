@@ -24,8 +24,6 @@ import net.openhft.chronicle.wire.AbstractMarshallable;
 import net.openhft.chronicle.wire.UnrecoverableTimeoutException;
 import net.openhft.chronicle.wire.Wire;
 import org.jetbrains.annotations.NotNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.EOFException;
 import java.util.concurrent.Callable;
@@ -36,8 +34,6 @@ import java.util.concurrent.TimeoutException;
  * Created by Peter Lawrey on 22/05/16.
  */
 public class SimpleStoreRecovery extends AbstractMarshallable implements StoreRecovery {
-    private static final Logger LOG = LoggerFactory.getLogger(SimpleStoreRecovery.class);
-
     @Override
     public long recoverIndex2Index(@NotNull LongValue index2Index, @NotNull Callable<Long> action, long timeoutMS) throws UnrecoverableTimeoutException {
         Jvm.warn().on(getClass(), "Rebuilding the index2index");
